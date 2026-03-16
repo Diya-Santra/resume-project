@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { Link } from "react-router";
+import { useAuth } from "../hooks/useAuth.js";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +51,7 @@ const Login = () => {
           <button type="submit" className="login-button">Sign In</button>
         </form>
         <p className="login-footer">
-          Don't have an account? <a href="/register">Sign up</a>
+          Don't have an account? <Link to={'/register'}>Register</Link>
         </p>
       </div>
     </div>

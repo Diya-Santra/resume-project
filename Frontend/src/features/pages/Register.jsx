@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -73,7 +75,7 @@ const Register = () => {
           <button type="submit" className="register-button">Sign Up</button>
         </form>
         <p className="register-footer">
-          Already have an account? <a href="/login">Sign in</a>
+          Already have an account? <Link to={'/login'}>Login</Link>
         </p>
       </div>
     </div>
