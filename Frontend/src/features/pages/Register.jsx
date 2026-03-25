@@ -1,22 +1,32 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
+import { useAuth } from "../hooks/useAuth.js";
 
 const Register = () => {
   const navigate = useNavigate();
+  const { handleRegister, loading } = useAuth();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
     console.log("Register submitted", { fullName, email, password });
+    await handleRegister({ username: fullName, email, password });
+    setEmail("")
+    setPassword("")
+    navigate('/')
   };
+
+  if (loading) {
+    return (<main><h1>Loading......</h1></main>);
+  }
 
   return (
     <div className="register-container">
