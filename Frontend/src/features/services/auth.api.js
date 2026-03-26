@@ -39,7 +39,9 @@ export const logout = async () => {
 
 export const getMe = async () => {
   try {
-    const response = await api.get("/auth/api/get-me");
+    const response = await api.get("/api/auth/get-me");
+    console.log(response);
+    
     return response.data;
   } catch (err) {
     console.log(err);
