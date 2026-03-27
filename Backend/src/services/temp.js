@@ -1,4 +1,4 @@
-const resume = {
+export const resume = {
   name: "Aarav Sharma",
   email: "aarav.sharma@email.com",
   phone: "+91-9876543210",
@@ -43,14 +43,14 @@ const resume = {
   }
 };
 
-const selfDescription = `
+export const selfDescription = `
 I am a passionate frontend developer with a strong interest in building scalable and user-friendly web applications. 
 I enjoy working with React and modern JavaScript frameworks, and I am always eager to learn new technologies. 
 I have experience collaborating with teams and delivering projects on time. 
 I am particularly interested in improving user experience and optimizing performance.
 `;
 
-const jobDescription = {
+export const jobDescription = {
   title: "Frontend Developer",
   company: "InnovateX",
   requiredSkills: [
@@ -74,3 +74,5 @@ const jobDescription = {
     "Strong problem-solving skills"
   ]
 };
+
+
