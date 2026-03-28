@@ -3,11 +3,11 @@ import { Router } from 'express'
 import { getMe, loginUser, logoutUser, registerUser } from '../controllers/auth.controller.js'
 import { authUserMiddleware } from '../middleware/auth.middleware.js'
 
-const router=Router()
+const authRouter=Router()
 
-export default router
+export default authRouter
 
-router.post('/register',registerUser)
-router.post('/login',loginUser)
-router.post('/logout',logoutUser)
-router.get('/get-me',authUserMiddleware,getMe)
+authRouter.post('/register',registerUser)
+authRouter.post('/login',loginUser)
+authRouter.post('/logout',logoutUser)
+authRouter.get('/get-me',authUserMiddleware,getMe)

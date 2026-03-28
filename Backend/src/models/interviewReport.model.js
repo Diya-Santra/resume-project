@@ -3,15 +3,15 @@ import mongoose, { mongo } from "mongoose";
 const technicalQuestionsSchema=new mongoose.Schema({
     question:{
         type:String,
-        required;[true,"technical qu required"]
+        required:[true,"technical qu required"]
     },
     intention:{
         type:String,
-        required;[true,"intention qu required"]
+        required:[true,"intention qu required"]
     },
     answer:{
         type:String,
-        required;[true,"answer qu required"]
+        required:[true,"answer qu required"]
     }
 },{
     _id:false
@@ -20,15 +20,15 @@ const technicalQuestionsSchema=new mongoose.Schema({
 const behavioralSchema=new mongoose.Schema({
     question:{
         type:String,
-        required;[true,"technical qu required"]
+        required:[true,"technical qu required"]
     },
     intention:{
         type:String,
-        required;[true,"intention qu required"]
+        required:[true,"intention qu required"]
     },
     answer:{
         type:String,
-        required;[true,"answer qu required"]
+        required:[true,"answer qu required"]
     }
 },{
     _id:false
@@ -57,10 +57,10 @@ const preparationPlanSchema=new mongoose.Schema({
         type:String,
         required:[true,'focus is required']
     },
-    tasks:{
+    tasks:[{
         type:String,
         required:[true,'task is required']
-    }
+    }]
 })
 
 const interviewReportSchema=new mongoose.Schema({
@@ -68,21 +68,25 @@ const interviewReportSchema=new mongoose.Schema({
         type:String,
         required:[true,"job description required"]
     },
-    resume{
+    resume:{
         type:String
     },
     selfDescription:{
         type:String
     },
-    matchscore:{
+    matchScore:{
         type:Number,
         min:0,
-        mix:100
+        max:100
     },
     technicalQuestions:[technicalQuestionsSchema],
     behavioralQuestions:[behavioralSchema],
     skillGaps:[skillGapsSchema],
-    prepationPlan:[preparationPlanSchema]
+    preparationPlan:[preparationPlanSchema],
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'users'
+    }
 },{
     timestamps:true
 })
