@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './Interview.css';
+import { useInterview } from '../hooks/useInterView';
 
 const Interview = () => {
   const [activeTab, setActiveTab] = useState('Technical questions');
+  const { report } = useInterview();
+  
 
   const tabs = [
     { id: 'technical', label: 'Technical questions' },
