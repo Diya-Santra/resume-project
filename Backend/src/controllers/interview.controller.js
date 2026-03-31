@@ -30,3 +30,23 @@ export const generateInterviewController=async(req,res)=>{
         newInterviewReport
     })
 }
+
+export const getInterviewReportByIdController=async(req,res)=>{
+    const interviewId=req.params
+    const interviewReportByAI=await interviewReport.findOne({_id:interviewId,user:req.user.id})
+
+    res.status(200).json({
+        message:'interview report fetched successfully',
+        interviewReportByAI
+    })
+
+}
+
+export const getALLInterviewReportsController=async(req,res)=>{
+    const interviewReports=await interviewReport.find({user:req.user.id}).sort({createdAt:-1}).select('-resume -selfDescription -jobDescription -__v -technicalQuestions -behavioralQuestions -skillGaps -preparationPlan')
+
+    res.status(200).json({
+        message:"Interview reports fetched successfully",
+        interviewReports
+    })
+}
