@@ -70,7 +70,7 @@ export const generateInterviewReport=async({resume,selfDescription,jobDescriptio
 - Output ONLY valid JSON
     `
     const response=await ai.models.generateContent({
-        model:'gemini-3-flash-preview',
+        model:'gemini-2.5-flash',
         contents:prompt,
         config:{
             responseMimeType:'application/json',
@@ -79,7 +79,7 @@ export const generateInterviewReport=async({resume,selfDescription,jobDescriptio
         }
     })
     // console.log(response.text)
-//     return JSON.parse(response.text);
+    // return JSON.parse(response.text);
 const parsed = JSON.parse(response.text);
 
 const validated = interviewReportSchema.safeParse(parsed);
