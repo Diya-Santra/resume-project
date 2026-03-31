@@ -1,6 +1,7 @@
 import Protected from "./features/components/Protected";
 import Login from "./features/pages/Login";
 import Home from "./features/pages/Home";
+import Interview from "./features/pages/Interview";
 import Register from "./features/pages/Register";
 import { Route, Routes } from "react-router-dom";
 
@@ -10,6 +11,7 @@ export const AppRoutes=()=>{
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/" element={<Protected><Home/></Protected>}/>
+                <Route path="/interview/:interviewId" element={<Protected><Interview/></Protected>}/>
             </Routes>
     )
 }
